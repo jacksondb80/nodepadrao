@@ -10,6 +10,7 @@ import Receita from '../app/models/Receita';
 import TipoConta from '../app/models/TipoConta';
 import TipoDespesa from '../app/models/TipoDespesa';
 import TipoLancamento from '../app/models/TipoLancamento';
+import LancamentoDespesa from '../app/models/LancamentoDespesa';
 
 const models = [
     User,
@@ -21,6 +22,7 @@ const models = [
     TipoConta,
     TipoDespesa,
     TipoLancamento,
+    LancamentoDespesa,
 ];
 
 class Database {
@@ -30,13 +32,17 @@ class Database {
 
     init() {
         this.connection = new Sequelize(databaseConfig);
-
-        models
-            .map((model) => model.init(this.connection))
-            .map(
-                (model) =>
-                    model.associate && model.associate(this.connection.models)
-            );
+        try {
+            models
+                .map((model) => model.init(this.connection))
+                .map(
+                    (model) =>
+                        model.associate &&
+                        model.associate(this.connection.models)
+                );
+        } catch (e) {
+            console.log(`Error. (${e})`);
+        }
     }
 }
 

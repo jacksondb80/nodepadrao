@@ -10,6 +10,7 @@ import DespesaController from './app/controllers/DespesaController';
 import ContaController from './app/controllers/ContaController';
 import DestinatarioController from './app/controllers/DestinatarioController';
 import ReceitaController from './app/controllers/ReceitaController';
+import LancamentoDespesaController from './app/controllers/LancamentoDespesaController';
 
 const routes = new Router();
 
@@ -68,5 +69,16 @@ routes.post('/receitas', ReceitaController.store);
 routes.get('/receitas', ReceitaController.index);
 routes.put('/receitas/:receita_id', ReceitaController.update);
 routes.delete('/receitas/:receita_id', ReceitaController.delete);
+
+routes.get('/lancamentos_despesa', LancamentoDespesaController.index);
+routes.post('/lancamentos_despesa', LancamentoDespesaController.store);
+routes.put(
+    '/lancamentos_despesa/:lancamento_despesa_id',
+    LancamentoDespesaController.update
+);
+routes.delete(
+    '/lancamentos_despesa/:lancamento_despesa_id',
+    LancamentoDespesaController.delete
+);
 
 export default routes;
