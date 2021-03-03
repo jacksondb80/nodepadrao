@@ -3,8 +3,25 @@ import databaseConfig from '../config/database';
 
 import User from '../app/models/User';
 import Tarefa from '../app/models/Tarefa';
+import Conta from '../app/models/Conta';
+import Despesa from '../app/models/Despesa';
+import Destinatario from '../app/models/Destinatario';
+import Receita from '../app/models/Receita';
+import TipoConta from '../app/models/TipoConta';
+import TipoDespesa from '../app/models/TipoDespesa';
+import TipoLancamento from '../app/models/TipoLancamento';
 
-const models = [User, Tarefa];
+const models = [
+    User,
+    Tarefa,
+    Conta,
+    Despesa,
+    Destinatario,
+    Receita,
+    TipoConta,
+    TipoDespesa,
+    TipoLancamento,
+];
 
 class Database {
     constructor() {

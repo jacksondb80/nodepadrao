@@ -8,7 +8,7 @@ class UserController {
             nome: Yup.string().required().min(3),
             email: Yup.string().email().required(),
             cpf: Yup.string().required().min(11).max(11),
-            senha: Yup.string().required.min(6),
+            senha: Yup.string().required().min(6),
         });
 
         if (!(await schema.isValid(req.body))) {
