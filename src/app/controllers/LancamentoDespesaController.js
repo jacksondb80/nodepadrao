@@ -87,6 +87,10 @@ class LancamentoDespesaController {
 
         return res.send();
     }
+
+    async validarLancamento() {
+        // verificar para lançar de acordo com o que esta enviado
+    }
 }
 
 export default new LancamentoDespesaController();
